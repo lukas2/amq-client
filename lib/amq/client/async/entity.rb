@@ -1,25 +1,11 @@
 # encoding: utf-8
 
-require "amq/client/openable"
+require "amq/client/entity"
 require "amq/client/async/callbacks"
 
 module AMQ
   module Client
     module Async
-      module RegisterEntityMixin
-        # @example Registering Channel implementation
-        #  Adapter.register_entity(:channel, Channel)
-        #   # ... so then I can do:
-        #  channel = client.channel(1)
-        #  # instead of:
-        #  channel = Channel.new(client, 1)
-        def register_entity(name, klass)
-          define_method(name) do |*args, &block|
-            klass.new(self, *args, &block)
-          end # define_method
-        end # register_entity
-      end # RegisterEntityMixin
-
       module ProtocolMethodHandlers
         def handle(klass, &block)
           AMQ::Client::HandlersRegistry.register(klass, &block)
@@ -40,10 +26,10 @@ module AMQ
       module Entity
 
         #
-        # Behaviors
+        # Behaviours
         #
 
-        include Openable
+        include AMQ::Client::Entity
         include Async::Callbacks
 
         #
@@ -55,10 +41,11 @@ module AMQ
 
 
         def initialize(connection)
-          @connection = connection
           # Be careful with default values for #ruby hashes: h = Hash.new(Array.new); h[:key] ||= 1
           # won't assign anything to :key. MK.
           @callbacks  = Hash.new
+
+          super(connection)
         end # initialize
       end # Entity
     end # Async

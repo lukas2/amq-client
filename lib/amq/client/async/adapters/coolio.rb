@@ -4,6 +4,7 @@
 
 require "cool.io"
 require "amq/client"
+require "amq/client/async/adapter"
 require "amq/client/framing/string/frame"
 
 module AMQ

@@ -1,12 +1,12 @@
 # encoding: utf-8
 
 require "spec_helper"
-require "amq/client/entity"
+require "amq/client/async/entity"
 
 describe AMQ::Client::Entity do
   let(:klazz) do
     Class.new do
-      include AMQ::Client::Entity
+      include AMQ::Client::Async::Entity
     end
   end
 
