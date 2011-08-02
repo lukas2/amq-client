@@ -31,6 +31,6 @@ EM.run do
   Signal.trap "TERM", show_stopper
 
   # TLS connections take forever and a day
-  # (compared to non-TLS connections) to estabilish.
+  # (compared to non-TLS connections) to establish.
   EM.add_timer(8, show_stopper)
 end

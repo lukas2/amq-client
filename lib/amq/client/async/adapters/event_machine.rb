@@ -191,7 +191,7 @@ module AMQ
 
 
 
-        # Whether we are in authentication state (after TCP connection was estabilished
+        # Whether we are in authentication state (after TCP connection was established
         # but before broker authenticated us).
         #
         # @return [Boolean]
@@ -200,7 +200,7 @@ module AMQ
           @authenticating
         end # authenticating?
 
-        # IS TCP connection estabilished and currently active?
+        # IS TCP connection established and currently active?
         # @return [Boolean]
         # @api public
         def tcp_connection_established?
@@ -221,7 +221,7 @@ module AMQ
         alias send_raw send_data
 
 
-        # EventMachine reactor callback. Is run when TCP connection is estabilished
+        # EventMachine reactor callback. Is run when TCP connection is established
         # but before resumption of the network loop. Note that this includes cases
         # when TCP connection has failed.
         # @private
@@ -241,7 +241,7 @@ module AMQ
 
 
 
-        # Called by EventMachine reactor once TCP connection is successfully estabilished.
+        # Called by EventMachine reactor once TCP connection is successfully established.
         # @private
         def connection_completed
           # we only can safely set this value here because EventMachine is a lovely piece of

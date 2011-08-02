@@ -14,7 +14,7 @@ module AMQ
       # sockets-based) subclass it and must implement Adapter API methods:
       #
       # * #send_raw(data)
-      # * #estabilish_connection(settings)
+      # * #establish_connection(settings)
       # * #close_connection
       #
       # @abstract
@@ -275,7 +275,7 @@ module AMQ
         end # heartbeat_interval
 
 
-        # vhost this connection uses. Default is "/", a historically estabilished convention
+        # vhost this connection uses. Default is "/", a historically established convention
         # of RabbitMQ and amqp gem.
         #
         # @return [String] vhost this connection uses
