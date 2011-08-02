@@ -11,7 +11,7 @@ EM.run do
   EM.add_timer(4, show_stopper)
 
 
-  AMQ::Client::EventMachineClient.connect(:port     => 9689,
+  AMQ::Client::Async::EventMachineClient.connect(:port     => 9689,
                                           :vhost    => "amq_client_testbed",
                                           :user     => "amq_client_gem",
                                           :password => "amq_client_gem_password",

@@ -13,7 +13,7 @@ TOTAL_MESSAGES = 10000
 # Short messages
 # Cool.io
 coolio_start = Time.now
-AMQ::Client::CoolioClient.connect(:port => 5672, :vhost => "/amq_client_testbed") do |client|
+AMQ::Client::Async::CoolioClient.connect(:port => 5672, :vhost => "/amq_client_testbed") do |client|
   received_messages = 0
   channel = AMQ::Client::Channel.new(client, 1)
   channel.open { }
@@ -45,7 +45,7 @@ coolio_finish = Time.now
 # Eventmachine
 em_start = Time.now
 EM.run do
-  AMQ::Client::EventMachineClient.connect(:port => 5672, :vhost => "/amq_client_testbed") do |client|
+  AMQ::Client::Async::EventMachineClient.connect(:port => 5672, :vhost => "/amq_client_testbed") do |client|
     received_messages = 0
     channel = AMQ::Client::Channel.new(client, 1)
     channel.open { }

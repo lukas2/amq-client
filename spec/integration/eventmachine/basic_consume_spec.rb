@@ -8,7 +8,7 @@ require 'integration/eventmachine/spec_helper'
 # See basic_ack_spec for example with acks
 #
 
-describe AMQ::Client::EventMachineClient, "AMQP consumer" do
+describe AMQ::Client::Async::EventMachineClient, "AMQP consumer" do
   include EventedSpec::SpecHelper
   default_timeout 5
 
@@ -88,7 +88,7 @@ describe AMQ::Client::EventMachineClient, "AMQP consumer" do
       end
     end # it "should not leave messages in the queues with noack=true"
   end # context "sending 100 messages"
-end # describe AMQ::Client::EventMachineClient, "Basic.Consume"
+end # describe AMQ::Client::Async::EventMachineClient, "Basic.Consume"
 
 
 

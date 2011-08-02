@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/coolio/spec_helper'
 
-describe "AMQ::Client::CoolioClient", "Exchange.Declare", :nojruby => true do
+describe "AMQ::Client::Async::CoolioClient", "Exchange.Declare", :nojruby => true do
   include EventedSpec::SpecHelper
   default_timeout 2
   let(:exchange_name) { "amq-client.testexchange.#{Time.now.to_i}" }

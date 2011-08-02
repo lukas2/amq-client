@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "Basic.Ack" do
+describe AMQ::Client::Async::EventMachineClient, "Basic.Ack" do
   include EventedSpec::SpecHelper
   default_timeout 4
 

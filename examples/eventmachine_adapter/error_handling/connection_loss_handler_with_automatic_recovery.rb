@@ -6,7 +6,7 @@ require File.join(__dir, "..", "example_helper")
 
 
 EM.run do
-  AMQ::Client::EventMachineClient.connect(:port     => 5672,
+  AMQ::Client::Async::EventMachineClient.connect(:port     => 5672,
                                           :vhost    => "amq_client_testbed",
                                           :user     => "amq_client_gem",
                                           :password => "amq_client_gem_password",

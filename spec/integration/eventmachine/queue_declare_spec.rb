@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "queue.declare" do
+describe AMQ::Client::Async::EventMachineClient, "queue.declare" do
 
   #
   # Environment

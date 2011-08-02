@@ -8,7 +8,7 @@ require 'integration/coolio/spec_helper'
 # See basic_ack_spec for example with acks
 #
 
-describe "AMQ::Client::CoolioClient", "Basic.Consume", :nojruby => true do
+describe "AMQ::Client::Async::CoolioClient", "Basic.Consume", :nojruby => true do
   include EventedSpec::SpecHelper
   default_timeout 4
 
@@ -88,7 +88,7 @@ describe "AMQ::Client::CoolioClient", "Basic.Consume", :nojruby => true do
       end
     end # it "should not leave messages in the queues with noack=true"
   end # context "sending 100 messages"
-end # describe AMQ::Client::CoolioClient, "Basic.Consume"
+end # describe AMQ::Client::Async::CoolioClient, "Basic.Consume"
 
 
 describe "Multiple", AMQ::Client::Async::Consumer, :nojruby => true do

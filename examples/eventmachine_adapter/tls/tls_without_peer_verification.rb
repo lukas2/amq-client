@@ -9,7 +9,7 @@ certificate_chain_file_path  = File.join(examples_dir, "tls_certificates", "clie
 client_private_key_file_path = File.join(examples_dir, "tls_certificates", "client", "key.pem")
 
 EM.run do
-  AMQ::Client::EventMachineClient.connect(:port     => 5671,
+  AMQ::Client::Async::EventMachineClient.connect(:port     => 5671,
                                           :vhost    => "amq_client_testbed",
                                           :user     => "amq_client_gem",
                                           :password => "amq_client_gem_password",

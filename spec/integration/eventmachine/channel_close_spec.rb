@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "Channel.Close" do
+describe AMQ::Client::Async::EventMachineClient, "Channel.Close" do
   include EventedSpec::SpecHelper
   default_timeout 1
 

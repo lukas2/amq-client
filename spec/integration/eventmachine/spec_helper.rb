@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-require "amq/client/adapters/event_machine"
-require "amq/client/queue"
-require "amq/client/exchange"
+require "amq/client/async/adapters/event_machine"
+require "amq/client/async/queue"
+require "amq/client/async/exchange"
 require "evented-spec"
 
 case RUBY_VERSION
@@ -17,7 +17,7 @@ end
 
 def em_amqp_connect(&block)
   em do
-    AMQ::Client::EventMachineClient.connect(:port => 5672, :vhost => "amq_client_testbed", :frame_max => 65536, :heartbeat_interval => 1) do |client|
+    AMQ::Client::Async::EventMachineClient.connect(:port => 5672, :vhost => "amq_client_testbed", :frame_max => 65536, :heartbeat_interval => 1) do |client|
       yield client
     end
   end

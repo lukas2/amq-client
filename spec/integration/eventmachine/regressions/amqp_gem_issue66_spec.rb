@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "handling immediate disconnection" do
+describe AMQ::Client::Async::EventMachineClient, "handling immediate disconnection" do
   include EventedSpec::SpecHelper
   default_timeout 4
 

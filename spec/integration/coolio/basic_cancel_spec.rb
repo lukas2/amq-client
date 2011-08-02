@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/coolio/spec_helper'
 
-describe "AMQ::Client::CoolioClient", "Basic.Cancel", :nojruby => true do
+describe "AMQ::Client::Async::CoolioClient", "Basic.Cancel", :nojruby => true do
   include EventedSpec::SpecHelper
   default_timeout 4
 
@@ -42,4 +42,4 @@ describe "AMQ::Client::CoolioClient", "Basic.Cancel", :nojruby => true do
     end
 
   end # it "should stop receiving messages after receiving cancel-ok"
-end # describe AMQ::Client::CoolioClient, "Basic.Consume"
+end # describe AMQ::Client::Async::CoolioClient, "Basic.Consume"

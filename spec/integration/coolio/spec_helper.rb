@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 begin
-  require "amq/client/adapters/coolio"
+  require "amq/client/async/adapters/coolio"
 rescue LoadError => e
   if RUBY_PLATFORM =~ /java/
     puts "WARNING: Cool.io specs will not run on jruby"
@@ -10,8 +10,9 @@ rescue LoadError => e
     raise e
   end
 end
-require "amq/client/queue"
-require "amq/client/exchange"
+
+require "amq/client/async/queue"
+require "amq/client/async/exchange"
 require "evented-spec"
 
 case RUBY_VERSION
@@ -26,7 +27,7 @@ end
 
 def coolio_amqp_connect(&block)
   coolio do
-    AMQ::Client::CoolioClient.connect(:port => 5672, :vhost => "amq_client_testbed", :frame_max => 2**16-1, :heartbeat_interval => 1) do |client|
+    AMQ::Client::Async::CoolioClient.connect(:port => 5672, :vhost => "amq_client_testbed", :frame_max => 2**16-1, :heartbeat_interval => 1) do |client|
       yield client
     end
   end

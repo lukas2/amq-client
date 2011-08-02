@@ -9,7 +9,7 @@ include PlatformDetection
 if mri?
   require "multi_json"
 
-  describe AMQ::Client::EventMachineClient, "Basic.Publish" do
+  describe AMQ::Client::Async::EventMachineClient, "Basic.Publish" do
     include EventedSpec::SpecHelper
     default_timeout 21.0
 

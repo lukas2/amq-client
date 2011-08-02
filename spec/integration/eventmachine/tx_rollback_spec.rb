@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "Tx.Rollback" do
+describe AMQ::Client::Async::EventMachineClient, "Tx.Rollback" do
   include EventedSpec::SpecHelper
   default_timeout 4
   let(:message) { "Hello, world!" }

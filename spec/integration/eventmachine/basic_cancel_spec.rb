@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "Basic.Cancel" do
+describe AMQ::Client::Async::EventMachineClient, "Basic.Cancel" do
   include EventedSpec::SpecHelper
   default_timeout 4
 
@@ -42,4 +42,4 @@ describe AMQ::Client::EventMachineClient, "Basic.Cancel" do
     end
 
   end # it "should stop receiving messages after receiving cancel-ok"
-end # describe AMQ::Client::EventMachineClient, "Basic.Consume"
+end # describe AMQ::Client::Async::EventMachineClient, "Basic.Consume"

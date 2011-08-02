@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/coolio/spec_helper'
 
-describe "AMQ::Client::CoolioClient", "Basic.Ack", :nojruby => true do
+describe "AMQ::Client::Async::CoolioClient", "Basic.Ack", :nojruby => true do
   include EventedSpec::SpecHelper
   default_timeout 1
 

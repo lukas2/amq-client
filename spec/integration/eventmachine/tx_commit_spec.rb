@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'integration/eventmachine/spec_helper'
 
-describe AMQ::Client::EventMachineClient, "Tx.Commit" do
+describe AMQ::Client::Async::EventMachineClient, "Tx.Commit" do
 
   #
   # Environment

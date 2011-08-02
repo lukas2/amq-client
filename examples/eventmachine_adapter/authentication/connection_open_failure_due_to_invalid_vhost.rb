@@ -16,7 +16,7 @@ begin
 
     EventMachine.add_timer(4, show_stopper)
 
-    AMQ::Client::EventMachineClient.connect(:port     => 9689,
+    AMQ::Client::Async::EventMachineClient.connect(:port     => 9689,
                                             :vhost    => "/a/b/c/#{rand}/d/#{Time.now.to_i}",
                                             :user     => "amq_client_gem",
                                             :password => "amq_client_gem_password",
