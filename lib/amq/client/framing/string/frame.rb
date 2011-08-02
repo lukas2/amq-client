@@ -31,10 +31,10 @@ module AMQ
     module Framing
       module String
         class Frame < AMQ::Protocol::Frame
-          ENCODINGS_SUPPORTED = defined? Encoding
-          HEADER_SLICE = (0..6).freeze
-          DATA_SLICE = (7..-1).freeze
-          PAYLOAD_SLICE = (0..-2).freeze
+          ENCODINGS_SUPPORTED = defined?(Encoding) unless defined?(ENCODINGS_SUPPORTED)
+          HEADER_SLICE = (0..6).freeze unless defined?(HEADER_SLICE)
+          DATA_SLICE = (7..-1).freeze unless defined?(DATA_SLICE)
+          PAYLOAD_SLICE = (0..-2).freeze unless defined?(PAYLOAD_SLICE)
 
           def self.decode(string)
             header              = string[HEADER_SLICE]

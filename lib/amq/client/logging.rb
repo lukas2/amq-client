@@ -26,7 +26,9 @@ module AMQ
         @logging = boolean
       end
 
-      REQUIRED_METHODS = [:debug, :info, :error, :fatal].freeze
+      unless defined?(REQUIRED_METHODS)
+        REQUIRED_METHODS = [:debug, :info, :error, :fatal].freeze
+      end
 
       def debug(message)
         log(:debug, message)
