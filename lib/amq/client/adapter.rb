@@ -201,9 +201,8 @@ module AMQ
       #
       # @api  plugin
       # @see  #close_connection
-      def disconnect(reply_code = 200, reply_text = "Goodbye", class_id = 0, method_id = 0, &block)
+      def disconnect(reply_code = 200, reply_text = "Goodbye", class_id = 0, method_id = 0)
         @intentionally_closing_connection = true
-        self.on_disconnection(&block)
 
         # ruby-amqp/amqp#66, MK.
         if self.open?

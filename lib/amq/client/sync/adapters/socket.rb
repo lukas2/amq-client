@@ -53,6 +53,10 @@ module AMQ
           @socket.close
         end
 
+        def disconnection_successful
+          self.close_connection # WTF, this shouldn't be required?
+        end
+
         def send_raw(data)
           @socket.write(data)
         end

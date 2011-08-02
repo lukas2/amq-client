@@ -55,6 +55,18 @@ module AMQ
 
             return instance
           end
+
+          # Properly close connection with AMQ broker, as described in
+          # section 2.2.4 of the {http://bit.ly/hw2ELX AMQP 0.9.1 specification}.
+          #
+          # @api  plugin
+          # @see  #close_connection
+          def disconnect(reply_code = 200, reply_text = "Goodbye", class_id = 0, method_id = 0, &block)
+            @intentionally_closing_connection = true
+            self.on_disconnection(&block)
+
+            super(reply_code, reply_text, class_id, method_id)
+          end
         end # ClassMethods
       end # Adapter
 
