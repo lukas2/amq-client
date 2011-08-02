@@ -38,6 +38,23 @@ module AMQ
 
 
         module ClassMethods
+
+          # Establishes connection to AMQ broker and returns it. New connection object is yielded to
+          # the block if it is given.
+          #
+          # @example Specifying adapter via the :adapter option
+          #   AMQ::Client::Adapter.connect(:adapter => "socket")
+          # @example Specifying using custom adapter class
+          #   AMQ::Client::Async::EventMachineClient.connect
+          # @param [Hash] Connection parameters, including :adapter to use.
+          # @api public
+          # @see AMQ::Client::Adapter::ClassMethods#connect
+          def connect(settings = nil, &block)
+            instance = super(settings)
+            instance.register_connection_callback(&block)
+
+            return instance
+          end
         end # ClassMethods
       end # Adapter
 

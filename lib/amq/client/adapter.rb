@@ -137,21 +137,20 @@ module AMQ
         end
 
 
-        # Establishes connection to AMQ broker and returns it. New connection object is yielded to
+        # Establishes connection to AMQ broker and returns it.
         # the block if it is given.
         #
         # @example Specifying adapter via the :adapter option
         #   AMQ::Client::Adapter.connect(:adapter => "socket")
         # @example Specifying using custom adapter class
-        #   AMQ::Client::SocketClient.connect
+        #   AMQ::Client::Sync::SocketClient.connect
         # @param [Hash] Connection parameters, including :adapter to use.
         # @api public
-        def connect(settings = nil, &block)
+        def connect(settings = nil)
           @settings = Settings.configure(settings)
 
           instance = self.new
-          instance.establish_connection(settings)
-          instance.register_connection_callback(&block)
+          instance.establish_connection(@settings)
 
           instance
         end

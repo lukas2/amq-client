@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require "socket"
+require "amq/client"
 require "amq/client/adapter"
 require "amq/client/sync/channel"
 require "amq/client/framing/io/frame"
