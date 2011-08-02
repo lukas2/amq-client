@@ -11,7 +11,7 @@ module AMQ
           module Basic
             module ChannelMixin
 
-              # Overrides {AMQ::Client::Channel#reject} behavior to use basic.nack.
+              # Overrides {AMQ::Client::Async::Channel#reject} behavior to use basic.nack.
               #
               # @api public
               # @see http://www.rabbitmq.com/amqp-0-9-1-quickref.html#basic.nack

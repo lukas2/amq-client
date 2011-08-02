@@ -217,7 +217,7 @@ module AMQ
               # to the exchange. This is used for incrementing the publisher index.
               #
               # @api public
-              # @see AMQ::Client::Exchange#publish
+              # @see AMQ::Client::Async::Exchange#publish
               # @see AMQ::Client::Extensions::RabbitMQ::Channel#publisher_index
               # @return [self] self
               def publish(*args, &block)

@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 require "amq/client/async/entity"
-require "amq/client/queue"
-require "amq/client/exchange"
+require "amq/client/async/queue"
+require "amq/client/async/exchange"
 
 module AMQ
   module Client
@@ -17,8 +17,8 @@ module AMQ
         include Entity
         extend ProtocolMethodHandlers
 
-        register_entity :queue,    AMQ::Client::Queue
-        register_entity :exchange, AMQ::Client::Exchange
+        register_entity :queue,    AMQ::Client::Async::Queue
+        register_entity :exchange, AMQ::Client::Async::Exchange
 
         #
         # API
@@ -346,7 +346,7 @@ module AMQ
         # it was previously instantiated on this channel.
         #
         # @param [String] name Exchange name
-        # @return [AMQ::Client::Exchange] Exchange (if found)
+        # @return [AMQ::Client::Async::Exchange] Exchange (if found)
         # @api plugin
         def find_exchange(name)
           @exchanges[name]

@@ -30,7 +30,7 @@ module AMQ
         attr_reader :name
 
         # Channel this queue belongs to.
-        # @return [AMQ::Client::Channel]
+        # @return [AMQ::Client::Async::Channel]
         attr_reader :channel
 
         # @return [Array<Hash>] All consumers on this queue.
@@ -48,7 +48,7 @@ module AMQ
 
 
         # @param  [AMQ::Client::Adapter]  AMQ networking adapter to use.
-        # @param  [AMQ::Client::Channel]  AMQ channel this queue object uses.
+        # @param  [AMQ::Client::Async::Channel]  AMQ channel this queue object uses.
         # @param  [String]                Queue name. Please note that AMQP spec does not require brokers to support Unicode for queue names.
         # @api public
         def initialize(connection, channel, name = AMQ::Protocol::EMPTY_STRING)
