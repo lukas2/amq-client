@@ -44,6 +44,10 @@ h3. cool.io adapter
 cool.io adapter is on par with EventMachine but is not used by any popular libraries (that we know of).
 Note that cool.io doesn't work on JRuby and Microsoft Windows(tm).
 
+h3. TCP socket adapter
+
+TCP socket adapter is work in progress right now. It will be useful for synchronous libraries such as Bunny.
+We plan to implement Bunny 1.0 on top of this adapter. See "#12":https://github.com/ruby-amqp/bunny/issues/12.
 
 h2. Installation
 
