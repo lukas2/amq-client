@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.textile"] + Dir.glob("doc/*")
 
   # Dependencies
-  s.add_dependency "eventmachine"
   s.add_dependency "amq-protocol", ">= 0.8.0"
 
 
