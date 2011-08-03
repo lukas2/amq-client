@@ -34,4 +34,16 @@ describe AMQ::Client::Sync::SocketClient do
       instance.should_not be_connected
     end
   end
+
+  describe "#handshake" do
+    subject do
+      instance = described_class.new
+      instance.establish_connection(:host => "localhost", :port => AMQ::Protocol::DEFAULT_PORT)
+      instance
+    end
+
+    it "should establish the connection with the broker" do
+      subject.handshake
+    end
+  end
 end

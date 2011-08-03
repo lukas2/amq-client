@@ -26,6 +26,12 @@ module AMQ
         # API
         #
 
+        def initialize
+          @frames = Array.new
+          @username = "guest" ###
+          @password = "guest" ###
+        end
+
         def establish_connection(settings)
           # NOTE: this doesn't work with "localhost", I don't know why:
           settings[:host] = "127.0.0.1" if settings[:host] == "localhost"
@@ -65,6 +71,22 @@ module AMQ
           frame = AMQ::Client::Framing::IO::Frame.decode(@socket)
           self.receive_frame(frame)
           frame
+        end
+
+        def receive_frameset(frames)
+          # puts "Frames received: #{frames.inspect}" ###
+          return *frames
+        end
+
+        #
+        # AMQP Methods
+        #
+        def handshake
+          super
+          self.receive # Connection.Start
+          self.send_frame(AMQ::Protocol::Connection::StartOk.encode(Settings.client_properties, "PLAIN", self.encode_credentials(@username, @password), "en_GB"))
+          connection_tune = self.receive.decode_payload
+          self.send_frame(AMQ::Protocol::Connection::TuneOk.encode(connection_tune.channel_max, connection_tune.frame_max, connection_tune.heartbeat))
         end
       end
     end
